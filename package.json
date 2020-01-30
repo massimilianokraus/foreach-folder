@@ -1,0 +1,19 @@
+{
+    "name": "foreach-folder",
+    "description": "A CLI utility to execute the same command in every subfolder of the current folder.",
+    "version": "1.0.0",
+    "main": "./bin/index.js",
+    "license": "MIT",
+    "preferGlobal": true,
+    "repository": "https://github.com/massimilianokraus/foreach-folder",
+    "scripts": {
+        "start": "node ./bin/index.js"
+    },
+    "bin": {
+        "forfo": "./bin/index.js",
+        "foreach-folder": "./bin/index.js"
+    },
+    "dependencies": {
+        "chalk": "^2.4.2"
+    }
+}
