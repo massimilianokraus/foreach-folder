@@ -1,7 +1,8 @@
 {
     "name": "foreach-folder",
     "description": "A CLI utility to execute the same command in every subfolder of the current folder.",
-    "version": "1.0.3",
+    "keywords": [ "foreach", "folder", "utility", "command", "execute" ],
+    "version": "1.0.4",
     "main": "./bin/index.js",
     "license": "MIT",
     "preferGlobal": true,
