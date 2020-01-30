@@ -69,5 +69,12 @@ Or, for Windows:
 
 (For a more powerful folder explorer, use the the `tree` utility instead).
 
+## WARNING
+The command is executed for every folder **SEQUENTIALLY**, i.e. before executing for folder2, the command must have finished its execution in folder1, etc.
+
+That means you cannot use this tool to run both a server and a client app in a full-stack application: the command will be stuck in the execution of - for example - the server until the server is shutdown, thus the client will never start.
+
+**Parallel execution** is scheduled for the next version.
+
 ## Contributions:
 Any advise or contribution is welcome.
