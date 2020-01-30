@@ -4,15 +4,15 @@ const { execSync } = require('child_process')
 const path = require('path')
 const chalk = require('chalk')
 
-console.log(execSync('clear').toString())
-console.log('*** ', chalk.greenBright('JS FOREACH-FOLDER'), ' ***')
-
 function main() {
+    console.log(chalk.bold(`JS FOREACH-FOLDER - v${process.env.npm_package_version}`))
     let args = process.argv.splice(2)
     if (args.length < 1) {
-        console.log(chalk.red('command required! Usage: forfo "<command>"'))
+        console.log('Usage: ', chalk.greenBright('forfo "<command>"'))
+        console.log(chalk.red('Error: '), '<command> missing!')
     } else if (args.length > 1) {
-        console.log(chalk.red('too much argument! One argument maximum!'))
+        console.log('Usage: ', chalk.greenBright('forfo "<command>"'))
+        console.log(chalk.red('Error:'), 'too much arguments!')
     } else {
         proceed(args[0])
     }
@@ -21,11 +21,12 @@ function main() {
 function proceed(command) {
     let containerFolder = process.cwd()
     console.log('')
-    console.log('pwd: ', chalk.greenBright(containerFolder))
+    console.log('current folder: ')
+    console.log(chalk.blueBright(containerFolder))
     let subfolders = getSubfolders(containerFolder)
-    console.log(chalk.greenBright('directories: '))
+    console.log('subfolders: ')
     for (let folder of subfolders.map(f => `'${f}'`)) {
-        console.log(folder)
+        console.log(chalk.cyanBright(folder))
     }
     console.log('')
     for (let dirName of subfolders) {
@@ -43,7 +44,7 @@ function getSubfolders(folder) {
 
 function exec(folder, dirName, command) {
     let dirPath = path.join(folder, dirName)
-    console.log(chalk.yellow(dirPath))
+    console.log(chalk.cyanBright(dirPath))
     process.chdir(dirPath)
     try {
         let outputBuffer = execSync(command)
